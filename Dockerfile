@@ -1,8 +1,5 @@
-FROM ubuntu
-RUN apt-get update && apt-get install -y gawk && apt-get install -y curl
+FROM python:3.6.4-slim
 
-ADD elasticsearch-close-old-indices.sh /usr/local/bin/elasticsearch-close-old-indices.sh
-ADD elasticsearch-remove-old-indices.sh /usr/local/bin/elasticsearch-remove-old-indices.sh
-RUN chmod 755 /usr/local/bin/elasticsearch-close-old-indices.sh
-RUN chmod 755 /usr/local/bin/elasticsearch-remove-old-indices.sh
+RUN pip install --quiet elasticsearch-curator==5.4.1
 
+ENTRYPOINT [ "/usr/local/bin/curator" ]
