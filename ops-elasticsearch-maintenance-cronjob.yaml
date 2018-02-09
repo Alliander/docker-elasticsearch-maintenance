@@ -10,7 +10,7 @@ spec:
         spec:
           containers:
           - name: ops-elasticsearch-maintenance
-            image: quay.io/alliander/ops-elasticsearch-maintenance:5.4.1
+            image: registry.test.appx.cloud/jenkins/ops-elasticsearch-maintenance:20180209131032
             args:
             - --config
             - /etc/config/config.yml
