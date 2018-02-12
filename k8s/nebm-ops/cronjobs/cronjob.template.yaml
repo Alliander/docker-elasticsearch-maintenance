@@ -1,7 +1,7 @@
 apiVersion: batch/v2alpha1
 kind: CronJob
 metadata:
-  name: ops-elasticsearch-maintenance
+  name: {appName}
 spec:
   schedule: 40 7 * * *
   jobTemplate:
@@ -9,8 +9,8 @@ spec:
       template:
         spec:
           containers:
-          - name: ops-elasticsearch-maintenance
-            image: registry.test.appx.cloud/jenkins/ops-elasticsearch-maintenance:20180209131032
+          - name: {appName}
+            image: {image}
             args:
             - --config
             - /etc/config/config.yml
@@ -21,5 +21,5 @@ spec:
           volumes:
             - name: config-volume
               configMap:
-                name: ops-elasticsearch-maintenance-config
+                name: {appName}
           restartPolicy: OnFailure
