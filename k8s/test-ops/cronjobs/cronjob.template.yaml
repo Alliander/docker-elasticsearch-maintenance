@@ -2,6 +2,8 @@ apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
   name: {appName}
+  labels:
+    app: {appName}
 spec:
   schedule: 40 7 * * *
   jobTemplate:
