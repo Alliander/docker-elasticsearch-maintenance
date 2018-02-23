@@ -12,6 +12,9 @@ actions:
     options:
       ignore_empty_list: True
     filters:
+    - filtertype: pattern
+      kind: regex
+      value: '^(logstash-|.monitoring-kibana-|.monitoring-es-|.kibana-).*$'
     - filtertype: age
       source: name
       direction: older
@@ -29,6 +32,9 @@ actions:
       timeout_override:
       ignore_empty_list: True
     filters:
+    - filtertype: pattern
+      kind: regex
+      value: '^(logstash-|.monitoring-kibana-|.monitoring-es-|.kibana-).*$'
     - filtertype: age
       source: name
       direction: older
